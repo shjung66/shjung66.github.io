@@ -425,8 +425,7 @@ dd {
 }
 
 .person-list,
-.person-grid,
-.alumni-compact-list {
+.person-grid {
   display: grid;
   gap: 18px;
 }
@@ -482,46 +481,53 @@ dd {
   font-size: 0.9rem;
 }
 
-.alumni-compact-list {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 28px;
+.alumni-subsection h3 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+}
+
+.alumni-simple-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
   border-top: 1px solid var(--line);
 }
 
-.alumni-compact-item {
-  min-width: 0;
-  padding: 14px 0 16px;
+.alumni-simple-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 8px;
+  align-items: baseline;
+  padding: 8px 0;
   border-bottom: 1px solid var(--line);
+  font-size: 0.94rem;
+  line-height: 1.45;
 }
 
-.alumni-compact-item h3 {
-  margin: 0 0 2px;
-  font-size: 1rem;
-  line-height: 1.35;
+.alumni-simple-item span {
+  min-width: 0;
 }
 
-.alumni-compact-item p {
-  margin: 5px 0;
+.alumni-simple-item span + span::before {
+  content: "|";
+  margin-right: 8px;
+  color: var(--line);
 }
 
-.alumni-role {
+.alumni-name {
+  font-weight: 700;
+}
+
+.alumni-role,
+.alumni-affiliation {
   color: var(--muted);
-  font-size: 0.88rem;
-  font-weight: 600;
+  font-size: 0.86rem;
 }
 
 .alumni-topic {
   color: var(--text);
-  font-size: 0.93rem;
-  line-height: 1.55;
   overflow-wrap: anywhere;
   word-break: normal;
-}
-
-.alumni-affiliation {
-  color: var(--muted);
-  font-size: 0.84rem;
-  line-height: 1.45;
 }
 
 .muted {
@@ -650,7 +656,6 @@ th {
   .hero-grid,
   .two-column,
   .person-grid,
-  .alumni-compact-list,
   .cards.three {
     grid-template-columns: 1fr;
   }
@@ -711,6 +716,18 @@ th {
     height: auto;
     aspect-ratio: 1 / 1;
     margin-bottom: 16px;
+  }
+
+  .alumni-simple-item {
+    display: block;
+  }
+
+  .alumni-simple-item span {
+    display: inline;
+  }
+
+  .alumni-simple-item span + span::before {
+    margin-left: 5px;
   }
 
   .columns {
