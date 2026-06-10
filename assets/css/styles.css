@@ -97,7 +97,7 @@ img {
 
 .site-title-main {
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 
 .site-title-sub {
@@ -170,6 +170,12 @@ img {
   line-height: 1.2;
 }
 
+.name-en {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
 .role,
 .person-role {
   margin: 0 0 12px;
@@ -199,7 +205,7 @@ img {
 
 .placeholder span {
   font-size: 0.85rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -207,7 +213,7 @@ img {
   margin: 0 0 12px;
   color: var(--accent);
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   text-transform: uppercase;
   font-size: 0.84rem;
 }
@@ -215,9 +221,9 @@ img {
 .hero-content h2 {
   margin: 0 0 16px;
   max-width: 760px;
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: 3.2rem;
   line-height: 1.08;
-  letter-spacing: -0.045em;
+  letter-spacing: 0;
 }
 
 .lead {
@@ -344,9 +350,9 @@ dd {
 
 .page h1 {
   margin: 0 0 16px;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: 2.6rem;
   line-height: 1.15;
-  letter-spacing: -0.035em;
+  letter-spacing: 0;
 }
 
 .page-intro {
@@ -365,7 +371,7 @@ dd {
 .research-area h2 {
   margin: 0 0 16px;
   font-size: 1.45rem;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 
 .timeline,
@@ -424,6 +430,7 @@ dd {
   display: flex;
   gap: 20px;
   padding: 22px;
+  min-width: 0;
 }
 
 .person-card.featured {
@@ -434,8 +441,44 @@ dd {
   display: block;
 }
 
+.person-card h3 {
+  margin-bottom: 4px;
+}
+
 .person-card p {
   margin: 8px 0;
+}
+
+.topic-label {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.research-topic {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.current-affiliation {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.profile-list div {
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+
+.course-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
 }
 
 .table-wrap {
@@ -562,6 +605,14 @@ th {
     max-width: 360px;
   }
 
+  .hero-content h2 {
+    font-size: 2.4rem;
+  }
+
+  .page h1 {
+    font-size: 2.2rem;
+  }
+
   .timeline li,
   .news-list li {
     grid-template-columns: 1fr;
@@ -581,6 +632,14 @@ th {
 
   .person-card {
     display: block;
+  }
+
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+
+  .research-tags span {
+    max-width: 100%;
   }
 
   .person-photo {
