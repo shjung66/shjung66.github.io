@@ -43,6 +43,11 @@ img {
   height: auto;
 }
 
+.profile-photo,
+.person-photo {
+  object-fit: cover;
+}
+
 .container {
   width: min(100% - 40px, var(--max-width));
   margin: 0 auto;
@@ -162,6 +167,19 @@ img {
   border: 1px solid var(--line);
   background: var(--card);
   padding: 28px;
+}
+
+.profile-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--line);
+  background: var(--bg-alt);
+}
+
+.profile-photo-large {
+  width: 220px;
+  flex: 0 0 220px;
 }
 
 .profile-card h1 {
@@ -415,6 +433,23 @@ dd {
   border-top: 1px solid var(--line);
 }
 
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.research-grid .research-area {
+  padding: 22px;
+  border: 1px solid var(--line);
+  background: var(--card);
+}
+
+.research-area h3 {
+  margin: 0 0 10px;
+  font-size: 1.08rem;
+}
+
 .research-area p {
   color: var(--muted);
 }
@@ -460,6 +495,12 @@ dd {
 
 .person-body {
   min-width: 0;
+}
+
+.profile-overview {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
 }
 
 .member-period {
@@ -591,6 +632,38 @@ th {
   font-weight: 700;
 }
 
+.publication-list {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.publication-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.publication-title {
+  display: block;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.publication-meta {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.compact-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.compact-list li {
+  padding: 6px 0;
+  overflow-wrap: anywhere;
+}
+
 .project-list {
   display: grid;
   gap: 18px;
@@ -663,6 +736,7 @@ th {
   .hero-grid,
   .two-column,
   .person-grid,
+  .research-grid,
   .cards.three {
     grid-template-columns: 1fr;
   }
@@ -678,6 +752,16 @@ th {
   .person-photo {
     width: 148px;
     height: 148px;
+  }
+
+  .profile-overview {
+    display: block;
+  }
+
+  .profile-photo-large {
+    width: 220px;
+    max-width: 100%;
+    margin-bottom: 20px;
   }
 
   .hero-content h2 {
