@@ -198,15 +198,23 @@ img {
 }
 
 .person-photo {
-  width: 112px;
-  height: 136px;
+  width: 156px;
+  height: 156px;
   flex: 0 0 auto;
 }
 
 .placeholder span {
-  font-size: 0.85rem;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  color: var(--accent);
+  font-size: 1.25rem;
+  font-weight: 700;
   letter-spacing: 0;
-  text-transform: uppercase;
 }
 
 .eyebrow {
@@ -417,7 +425,8 @@ dd {
 }
 
 .person-list,
-.person-grid {
+.person-grid,
+.alumni-list {
   display: grid;
   gap: 18px;
 }
@@ -434,11 +443,12 @@ dd {
 }
 
 .person-card.featured {
-  max-width: 760px;
+  max-width: 900px;
+  align-items: flex-start;
 }
 
-.person-card.compact-card {
-  display: block;
+.person-card.member-card {
+  align-items: flex-start;
 }
 
 .person-card h3 {
@@ -447,6 +457,10 @@ dd {
 
 .person-card p {
   margin: 8px 0;
+}
+
+.person-body {
+  min-width: 0;
 }
 
 .topic-label {
@@ -458,6 +472,7 @@ dd {
 
 .research-topic {
   overflow-wrap: anywhere;
+  word-wrap: break-word;
   word-break: normal;
 }
 
@@ -465,6 +480,25 @@ dd {
   margin-top: 18px;
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.alumni-list {
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.alumni-item {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.alumni-item h3 {
+  margin: 0 0 4px;
+  font-size: 1.08rem;
+}
+
+.alumni-item p {
+  margin: 7px 0;
 }
 
 .muted {
@@ -605,6 +639,11 @@ th {
     max-width: 360px;
   }
 
+  .person-photo {
+    width: 148px;
+    height: 148px;
+  }
+
   .hero-content h2 {
     font-size: 2.4rem;
   }
@@ -643,6 +682,10 @@ th {
   }
 
   .person-photo {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    aspect-ratio: 1 / 1;
     margin-bottom: 16px;
   }
 
