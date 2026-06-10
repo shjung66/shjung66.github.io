@@ -462,6 +462,12 @@ dd {
   min-width: 0;
 }
 
+.member-period {
+  margin-top: -8px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .topic-label {
   margin-top: 18px;
   color: var(--muted);
@@ -518,6 +524,7 @@ dd {
   font-weight: 700;
 }
 
+.alumni-period,
 .alumni-role,
 .alumni-affiliation {
   color: var(--muted);
