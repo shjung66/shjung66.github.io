@@ -426,7 +426,7 @@ dd {
 
 .person-list,
 .person-grid,
-.alumni-list {
+.alumni-compact-list {
   display: grid;
   gap: 18px;
 }
@@ -482,23 +482,46 @@ dd {
   font-size: 0.9rem;
 }
 
-.alumni-list {
-  gap: 0;
+.alumni-compact-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 28px;
   border-top: 1px solid var(--line);
 }
 
-.alumni-item {
-  padding: 22px 0;
+.alumni-compact-item {
+  min-width: 0;
+  padding: 14px 0 16px;
   border-bottom: 1px solid var(--line);
 }
 
-.alumni-item h3 {
-  margin: 0 0 4px;
-  font-size: 1.08rem;
+.alumni-compact-item h3 {
+  margin: 0 0 2px;
+  font-size: 1rem;
+  line-height: 1.35;
 }
 
-.alumni-item p {
-  margin: 7px 0;
+.alumni-compact-item p {
+  margin: 5px 0;
+}
+
+.alumni-role {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.alumni-topic {
+  color: var(--text);
+  font-size: 0.93rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.alumni-affiliation {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.45;
 }
 
 .muted {
@@ -627,6 +650,7 @@ th {
   .hero-grid,
   .two-column,
   .person-grid,
+  .alumni-compact-list,
   .cards.three {
     grid-template-columns: 1fr;
   }
