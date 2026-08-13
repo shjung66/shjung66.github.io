@@ -515,18 +515,28 @@ dd {
 
 .member-output-list {
   margin: 0;
-  padding-left: 20px;
+  padding: 0;
+  list-style: none;
 }
 
 .member-output-item {
-  margin: 8px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.65rem;
+  align-items: baseline;
+  margin: 9px 0;
+  line-height: 1.55;
   overflow-wrap: anywhere;
+}
+
+.output-title {
+  min-width: 0;
+  flex: 1 1 18rem;
 }
 
 .publication-status {
   display: inline-flex;
   align-items: center;
-  margin-left: 8px;
   padding: 2px 7px;
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -714,6 +724,13 @@ th {
   margin: -20px 0 34px;
 }
 
+.publication-profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
 .external-link {
   display: inline-flex;
   align-items: center;
@@ -725,7 +742,8 @@ th {
   font-size: 0.82em;
 }
 
-.scholar-button {
+.scholar-button,
+.researchgate-button {
   border: 1px solid var(--accent);
   background: var(--accent);
   color: #ffffff;
@@ -735,9 +753,19 @@ th {
   text-decoration: none;
 }
 
-.scholar-button:hover {
+.researchgate-button {
+  background: #ffffff;
+  color: var(--accent);
+}
+
+.scholar-button:hover,
+.researchgate-button:hover {
   color: #ffffff;
   text-decoration: underline;
+}
+
+.researchgate-button:hover {
+  color: var(--accent);
 }
 
 .project-list {
