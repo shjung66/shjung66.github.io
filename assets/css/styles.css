@@ -725,9 +725,9 @@ th {
 }
 
 .photo-date {
-  margin: 0 0 4px;
-  color: var(--muted);
-  font-size: 0.9rem;
+  margin: 0 0 18px;
+  color: var(--text);
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
@@ -739,14 +739,9 @@ th {
 }
 
 .photo-card {
-  margin: 0;
   border: 1px solid var(--line);
   background: var(--card);
   padding: 12px;
-}
-
-.photo-card a {
-  display: block;
 }
 
 .photo-card img {
@@ -755,16 +750,6 @@ th {
   aspect-ratio: 3 / 4;
   object-fit: cover;
   background: var(--bg-alt);
-}
-
-.photo-card:hover {
-  border-color: #b9c3d1;
-}
-
-.photo-caption {
-  margin-top: 9px;
-  color: var(--muted);
-  font-size: 0.9rem;
 }
 
 .external-link-group {
