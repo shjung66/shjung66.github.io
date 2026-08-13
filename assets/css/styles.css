@@ -362,6 +362,10 @@ dd {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.cards.four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .card {
   padding: 24px;
 }
@@ -720,6 +724,49 @@ th {
   overflow-wrap: anywhere;
 }
 
+.photo-date {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 22px;
+}
+
+.photo-card {
+  margin: 0;
+  border: 1px solid var(--line);
+  background: var(--card);
+  padding: 12px;
+}
+
+.photo-card a {
+  display: block;
+}
+
+.photo-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  background: var(--bg-alt);
+}
+
+.photo-card:hover {
+  border-color: #b9c3d1;
+}
+
+.photo-caption {
+  margin-top: 9px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .external-link-group {
   margin: -20px 0 34px;
 }
@@ -841,7 +888,8 @@ th {
   .two-column,
   .person-grid,
   .research-grid,
-  .cards.three {
+  .cards.three,
+  .cards.four {
     grid-template-columns: 1fr;
   }
 
@@ -903,6 +951,10 @@ th {
 
   .research-tags span {
     max-width: 100%;
+  }
+
+  .photo-grid {
+    grid-template-columns: 1fr;
   }
 
   .person-photo {
