@@ -522,25 +522,27 @@ details.research-area summary:hover {
 }
 
 .research-study {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px 9px;
-  align-items: baseline;
+  display: block;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--line);
   line-height: 1.55;
 }
 
 .study-title {
-  flex: 1 1 24rem;
-  min-width: 0;
+  display: inline;
   overflow-wrap: anywhere;
 }
 
 .study-meta {
-  flex-basis: 100%;
+  display: inline;
+  margin-left: 0.25rem;
   color: var(--muted);
   font-size: 0.88rem;
+}
+
+.research-study .publication-status {
+  margin-left: 0.4rem;
+  vertical-align: baseline;
 }
 
 .person-list,
