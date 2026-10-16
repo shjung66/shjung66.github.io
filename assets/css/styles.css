@@ -483,14 +483,47 @@ details.research-area {
 }
 
 details.research-area summary {
+  position: relative;
   display: grid;
   gap: 3px;
-  padding: 18px 20px;
+  padding: 18px 56px 18px 20px;
+  list-style: none;
   cursor: pointer;
 }
 
 details.research-area summary:hover {
   background: var(--bg-alt);
+}
+
+details.research-area summary::-webkit-details-marker {
+  display: none;
+}
+
+details.research-area summary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+details.research-area summary:hover::after {
+  border-color: var(--accent);
+}
+
+details.research-area[open] summary::after {
+  transform: translateY(-30%) rotate(-135deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  details.research-area summary::after {
+    transition: none;
+  }
 }
 
 .research-area-title {
@@ -501,6 +534,7 @@ details.research-area summary:hover {
 .research-area-title-ko {
   color: var(--muted);
   font-size: 0.92rem;
+  word-break: keep-all;
 }
 
 .research-area-content {
