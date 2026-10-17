@@ -27,6 +27,8 @@ body {
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.7;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 a {
@@ -731,24 +733,32 @@ details.research-area[open] summary::after {
 }
 
 .alumni-simple-item {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3px 8px;
-  align-items: baseline;
-  padding: 8px 0;
+  padding: 10px 0;
   border-bottom: 1px solid var(--line);
   font-size: 0.94rem;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
-.alumni-simple-item span {
-  min-width: 0;
+.alumni-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 8px;
+  align-items: baseline;
+  margin: 0;
 }
 
-.alumni-simple-item span + span::before {
-  content: "|";
+.alumni-head span + span::before {
+  content: "·";
   margin-right: 8px;
-  color: var(--line);
+  color: var(--muted);
+}
+
+.alumni-work {
+  margin: 2px 0 0;
+}
+
+.alumni-work .publication-status {
+  margin-left: 0.4rem;
 }
 
 .alumni-name {
@@ -905,7 +915,8 @@ th {
 }
 
 .scholar-button,
-.researchgate-button {
+.researchgate-button,
+.orcid-button {
   border: 1px solid var(--accent);
   background: var(--accent);
   color: #ffffff;
@@ -915,18 +926,21 @@ th {
   text-decoration: none;
 }
 
-.researchgate-button {
+.researchgate-button,
+.orcid-button {
   background: #ffffff;
   color: var(--accent);
 }
 
 .scholar-button:hover,
-.researchgate-button:hover {
+.researchgate-button:hover,
+.orcid-button:hover {
   color: #ffffff;
   text-decoration: underline;
 }
 
-.researchgate-button:hover {
+.researchgate-button:hover,
+.orcid-button:hover {
   color: var(--accent);
 }
 
@@ -1080,18 +1094,6 @@ th {
     margin-bottom: 16px;
   }
 
-  .alumni-simple-item {
-    display: block;
-  }
-
-  .alumni-simple-item span {
-    display: inline;
-  }
-
-  .alumni-simple-item span + span::before {
-    margin-left: 5px;
-  }
-
   .columns {
     columns: 1;
   }
@@ -1134,5 +1136,39 @@ th {
 
   .profile-card p {
     margin: 0 0 6px;
+  }
+}
+
+/* People: compact member cards on phones */
+@media (max-width: 640px) {
+  .person-card.member-card {
+    display: flex;
+    gap: 14px;
+  }
+
+  .member-card .person-photo {
+    width: 56px;
+    height: 56px;
+    max-width: none;
+    margin: 0;
+  }
+
+  .member-card .person-photo.placeholder {
+    background: none;
+    border: 0;
+  }
+
+  .member-card .placeholder span {
+    width: 52px;
+    height: 52px;
+    font-size: 1.1rem;
+  }
+
+  .alumni-head .alumni-affiliation {
+    flex-basis: 100%;
+  }
+
+  .alumni-head .alumni-affiliation::before {
+    content: none;
   }
 }
