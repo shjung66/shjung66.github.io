@@ -909,6 +909,10 @@ th {
   aspect-ratio: 4 / 3;
 }
 
+.photo-card.photo-square img {
+  aspect-ratio: 1 / 1;
+}
+
 .external-link-group {
   margin: -20px 0 34px;
 }
