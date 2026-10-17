@@ -111,6 +111,10 @@ img {
   font-size: 0.86rem;
 }
 
+.home .site-title {
+  visibility: hidden;
+}
+
 .site-nav {
   display: flex;
   align-items: center;
@@ -1100,5 +1104,35 @@ th {
   .section-heading .text-link {
     display: inline-block;
     margin-top: 8px;
+  }
+}
+
+/* Home: compact profile card on phones */
+@media (max-width: 640px) {
+  .profile-card {
+    display: grid;
+    grid-template-columns: 104px 1fr;
+    column-gap: 18px;
+    align-items: start;
+    max-width: none;
+    padding: 18px;
+  }
+
+  .profile-card .profile-photo {
+    grid-row: 1 / span 5;
+    width: 104px;
+  }
+
+  .profile-card > :not(.profile-photo) {
+    grid-column: 2;
+  }
+
+  .profile-card h1 {
+    margin: 0 0 4px;
+    font-size: 1.4rem;
+  }
+
+  .profile-card p {
+    margin: 0 0 6px;
   }
 }
