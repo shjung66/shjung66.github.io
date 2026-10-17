@@ -422,6 +422,14 @@ dd {
   letter-spacing: 0;
 }
 
+.section-title-ko {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
 .timeline,
 .plain-list {
   margin: 0;
