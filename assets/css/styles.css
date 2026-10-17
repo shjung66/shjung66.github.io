@@ -900,6 +900,15 @@ th {
   background: var(--bg-alt);
 }
 
+/* Wide group photos span the whole row */
+.photo-card.photo-wide {
+  grid-column: 1 / -1;
+}
+
+.photo-card.photo-wide img {
+  aspect-ratio: 4 / 3;
+}
+
 .external-link-group {
   margin: -20px 0 34px;
 }
