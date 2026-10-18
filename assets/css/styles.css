@@ -1286,29 +1286,3 @@ th {
   font-size: 0.86rem;
   font-weight: 500;
 }
-
-/* Research and People: journal index label (SCIE, SSCI, SCOPUS, KCI) after the journal */
-.index-label {
-  display: inline-block;
-  margin-left: 0.4rem;
-  padding: 0 6px;
-  border: 1px solid var(--accent);
-  border-radius: 4px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  line-height: 1.5;
-  white-space: nowrap;
-  vertical-align: baseline;
-}
-
-.index-intl {
-  color: #ffffff;
-  background: var(--accent);
-}
-
-.index-kci {
-  color: var(--accent);
-  background: var(--accent-light);
-  border-color: #b9c8de;
-}
