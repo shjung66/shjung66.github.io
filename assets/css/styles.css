@@ -1255,3 +1255,26 @@ th {
 .alumni-subsection + .alumni-subsection {
   margin-top: 28px;
 }
+
+/* Research: keep the three profile buttons on one line on phones */
+@media (max-width: 480px) {
+  .research-profile-links {
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+
+  .research-profile-links a {
+    flex: 1 1 auto;
+    justify-content: center;
+    padding: 10px 6px;
+    font-size: 0.82rem;
+    white-space: nowrap;
+  }
+}
+
+/* Very narrow screens: let the buttons wrap instead of overflowing */
+@media (max-width: 350px) {
+  .research-profile-links {
+    flex-wrap: wrap;
+  }
+}
