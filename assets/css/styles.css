@@ -423,11 +423,19 @@ dd {
 }
 
 .section-title-ko {
-  display: block;
-  margin-top: 4px;
+  display: inline-block;
   color: var(--muted);
   font-size: 0.95rem;
   font-weight: 500;
+}
+
+/* Korean subtitle sits beside the English title and wraps below when space runs out */
+h2:has(> .section-title-ko) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 10px;
+  row-gap: 2px;
 }
 
 .timeline,
@@ -797,6 +805,34 @@ details.research-area[open] summary::after {
 
 .profile-list dd {
   margin: 2px 0 0;
+}
+
+/* Home CV: one-line lists (item first, period after) */
+.cv-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cv-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  column-gap: 16px;
+  padding: 9px 0;
+  border-top: 1px solid var(--line);
+}
+
+.cv-when {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.cv-list.wide {
+  max-width: 820px;
 }
 
 .course-list li {
