@@ -991,8 +991,7 @@ th {
   text-decoration: none;
 }
 
-.researchgate-button,
-.orcid-button {
+.researchgate-button {
   background: #ffffff;
   color: var(--accent);
 }
@@ -1004,8 +1003,7 @@ th {
   text-decoration: underline;
 }
 
-.researchgate-button:hover,
-.orcid-button:hover {
+.researchgate-button:hover {
   color: var(--accent);
 }
 
@@ -1241,4 +1239,19 @@ th {
 /* Research: profile buttons under the page title */
 .research-profile-links {
   margin-bottom: 44px;
+}
+
+/* Research: publisher and year sit beside the book title and drop below when the line is full */
+.book-list .publication-meta {
+  display: inline-block;
+}
+
+/* Research: Korean official title under the English title (patents, copyright) */
+.publication-ko {
+  display: block;
+}
+
+/* People: space between the M.S. and undergraduate alumni lists */
+.alumni-subsection + .alumni-subsection {
+  margin-top: 28px;
 }
