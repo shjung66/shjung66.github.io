@@ -1278,3 +1278,11 @@ th {
     flex-wrap: wrap;
   }
 }
+
+/* People: English name beside the Korean name in the alumni lists */
+.alumni-name-en {
+  margin-left: 6px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 500;
+}
