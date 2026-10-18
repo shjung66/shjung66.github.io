@@ -1237,3 +1237,8 @@ th {
     content: none;
   }
 }
+
+/* Research: profile buttons under the page title */
+.research-profile-links {
+  margin-bottom: 44px;
+}
