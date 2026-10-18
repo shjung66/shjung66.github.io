@@ -953,6 +953,10 @@ th {
   aspect-ratio: 1 / 1;
 }
 
+.photo-card.photo-16x9 img {
+  aspect-ratio: 16 / 9;
+}
+
 .external-link-group {
   margin: -20px 0 34px;
 }
