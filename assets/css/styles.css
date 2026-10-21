@@ -1272,3 +1272,16 @@ th {
   font-size: 0.86rem;
   font-weight: 500;
 }
+
+/* People: Korean subtitle beside the alumni sub-headings, a step smaller than on h2 */
+.alumni-subsection h3:has(> .section-title-ko) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 8px;
+  row-gap: 2px;
+}
+
+.alumni-subsection h3 .section-title-ko {
+  font-size: 0.85rem;
+}
