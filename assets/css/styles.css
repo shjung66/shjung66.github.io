@@ -1286,3 +1286,9 @@ th {
   font-size: 0.86rem;
   font-weight: 500;
 }
+
+/* Research and People: accepted paper badge (navy on light navy) */
+.status-accepted {
+  color: var(--accent);
+  background: var(--accent-light);
+}
