@@ -676,37 +676,23 @@ details.research-area[open] summary::after {
   flex: 1 1 18rem;
 }
 
+/* Status tag (in progress, under review, accepted, conference): one quiet
+   neutral style so unfinished work does not stand out more than published papers */
 .publication-status {
   display: inline-flex;
   align-items: center;
-  padding: 2px 7px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 700;
+  padding: 0 6px;
+  border: 1px solid #cfd5dd;
+  border-radius: 4px;
+  color: #6b7078;
+  background: transparent;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   line-height: 1.4;
   white-space: nowrap;
   vertical-align: baseline;
-}
-
-.status-published {
-  color: var(--accent);
-  background: var(--accent-light);
-}
-
-.status-review {
-  color: var(--muted);
-  background: var(--bg-alt);
-}
-
-.status-current {
-  color: #36553b;
-  background: #edf4ee;
-}
-
-.status-conference {
-  color: #5a4a20;
-  background: #f6f1df;
 }
 
 .paper-link {
@@ -1285,10 +1271,4 @@ th {
   color: var(--muted);
   font-size: 0.86rem;
   font-weight: 500;
-}
-
-/* Research and People: accepted paper badge (navy on light navy) */
-.status-accepted {
-  color: var(--accent);
-  background: var(--accent-light);
 }
