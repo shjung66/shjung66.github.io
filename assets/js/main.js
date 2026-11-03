@@ -24,13 +24,10 @@ const paperArchive = document.getElementById("paper-archive");
 
 if (researchTabs && areasPanel && allPanel) {
   const tabs = Array.from(researchTabs.querySelectorAll('[role="tab"]'));
-  const groups = [
-    { key: "current", en: "In Progress", ko: "진행 중" },
-    { key: "review", en: "Under Review", ko: "심사 중" },
-    { key: "accepted", en: "Accepted", ko: "게재 승인" },
-    { key: "published", en: "Published", ko: "게재 논문" },
-  ];
-  const indexOrder = ["SCIE", "SSCI", "SCOPUS", "KCI"];
+  // One list, like the research-area lists: in progress, under review,
+  // accepted, then published papers (newest first). Each paper keeps its
+  // status and index tags.
+  const statusOrder = ["current", "review", "accepted", "published"];
 
   const seen = new Set();
   const papers = [];
@@ -49,77 +46,37 @@ if (researchTabs && areasPanel && allPanel) {
     else if (tags.includes("Accepted")) status = "accepted";
     const metaEl = li.querySelector(".study-meta");
     const yearMatch = (metaEl ? metaEl.textContent : "").match(/(\d{4})\.?\s*$/);
-    const indexEl = li.querySelector(".index-tag");
     papers.push({
       li,
       status,
       year: yearMatch ? Number(yearMatch[1]) : 0,
       date: li.dataset.date || "", // "YYYY-MM", orders papers within a year
-      index: indexEl ? indexEl.textContent.trim() : "",
       num: Number(id.replace(/\D/g, "")),
     });
   });
 
-  const byStatus = (key) => papers.filter((p) => p.status === key);
-  const published = byStatus("published").sort(
-    (a, b) => b.year - a.year || b.date.localeCompare(a.date) || b.num - a.num
-  );
-
-  const el = (tag, className, text) => {
-    const node = document.createElement(tag);
-    if (className) node.className = className;
-    if (text) node.textContent = text;
-    return node;
-  };
-
-  const indexCounts = indexOrder
-    .map((name) => [name, published.filter((p) => p.index === name).length])
-    .filter(([, n]) => n > 0)
-    .map(([name, n]) => `${name} ${n}`)
-    .join(" · ");
-  const summary = el("p", "paper-summary");
-  summary.append(
-    el("strong", "", `게재 ${published.length}편`),
-    ` (${indexCounts}) · 게재 승인 ${byStatus("accepted").length}편 · 심사 중 ${byStatus("review").length}편 · 진행 중 ${byStatus("current").length}편`
-  );
-  // Jack's role, read from the author line: his name is in <strong>, and
-  // a "*" after a name marks the corresponding author.
-  const myName = (p) => p.li.querySelector(".study-authors strong");
-  const firstCount = published.filter((p) => {
-    const me = myName(p);
-    return me && !me.previousSibling;
-  }).length;
-  const corrCount = published.filter((p) => {
-    const me = myName(p);
-    return me && me.textContent.trim().endsWith("*");
-  }).length;
-  if (firstCount || corrCount) {
-    summary.append(el("br"), `게재 논문 중 1저자 ${firstCount}편 · 교신저자 ${corrCount}편 (* 교신저자)`);
-  }
-  allPanel.append(summary);
-
-  let number = published.length;
-  groups.forEach((group) => {
-    const items = group.key === "published" ? published : byStatus(group.key).sort((a, b) => a.num - b.num);
-    if (!items.length) return;
-    const title = el("h3", "paper-group-title", `${group.en} `);
-    title.append(el("span", "section-title-ko", group.ko), el("span", "paper-count", String(items.length)));
-    allPanel.append(title);
-
-    const years = group.key === "published" ? [...new Set(items.map((p) => p.year))] : [null];
-    years.forEach((year) => {
-      if (year) allPanel.append(el("h4", "paper-year", String(year)));
-      const list = el("ul", "research-study-list paper-list");
-      items
-        .filter((p) => year === null || p.year === year)
-        .forEach((p) => {
-          const item = p.li.cloneNode(true);
-          if (group.key === "published") item.prepend(el("span", "paper-num", `${number--}.`));
-          list.append(item);
-        });
-      allPanel.append(list);
-    });
+  papers.sort((a, b) => {
+    const byStatus = statusOrder.indexOf(a.status) - statusOrder.indexOf(b.status);
+    if (byStatus) return byStatus;
+    if (a.status !== "published") return a.num - b.num;
+    return b.year - a.year || b.date.localeCompare(a.date) || b.num - a.num;
   });
+
+  // Published papers are numbered, the newest with the highest number
+  let number = papers.filter((p) => p.status === "published").length;
+  const list = document.createElement("ul");
+  list.className = "research-study-list paper-list";
+  papers.forEach((p) => {
+    const item = p.li.cloneNode(true);
+    if (p.status === "published") {
+      const num = document.createElement("span");
+      num.className = "paper-num";
+      num.textContent = `${number--}.`;
+      item.prepend(num);
+    }
+    list.append(item);
+  });
+  allPanel.append(list);
 
   const select = (tab, updateUrl) => {
     tabs.forEach((t) => {
