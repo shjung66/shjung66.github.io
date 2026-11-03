@@ -19,6 +19,8 @@ if (navToggle && siteNav) {
 const researchTabs = document.querySelector(".research-tabs");
 const areasPanel = document.getElementById("panel-areas");
 const allPanel = document.getElementById("panel-all");
+// Older papers outside the research areas, listed only in the All Papers tab
+const paperArchive = document.getElementById("paper-archive");
 
 if (researchTabs && areasPanel && allPanel) {
   const tabs = Array.from(researchTabs.querySelectorAll('[role="tab"]'));
@@ -32,7 +34,10 @@ if (researchTabs && areasPanel && allPanel) {
 
   const seen = new Set();
   const papers = [];
-  areasPanel.querySelectorAll("li.research-study[data-paper-id]").forEach((li) => {
+  const studyItems = [areasPanel, paperArchive]
+    .filter(Boolean)
+    .flatMap((source) => Array.from(source.querySelectorAll("li.research-study[data-paper-id]")));
+  studyItems.forEach((li) => {
     const id = li.dataset.paperId;
     // CP = conference presentation (listed under Conference Presentations)
     if (seen.has(id) || id.startsWith("CP")) return;
@@ -49,13 +54,16 @@ if (researchTabs && areasPanel && allPanel) {
       li,
       status,
       year: yearMatch ? Number(yearMatch[1]) : 0,
+      date: li.dataset.date || "", // "YYYY-MM", orders papers within a year
       index: indexEl ? indexEl.textContent.trim() : "",
       num: Number(id.replace(/\D/g, "")),
     });
   });
 
   const byStatus = (key) => papers.filter((p) => p.status === key);
-  const published = byStatus("published").sort((a, b) => b.year - a.year || b.num - a.num);
+  const published = byStatus("published").sort(
+    (a, b) => b.year - a.year || b.date.localeCompare(a.date) || b.num - a.num
+  );
 
   const el = (tag, className, text) => {
     const node = document.createElement(tag);
