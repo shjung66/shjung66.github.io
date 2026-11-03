@@ -817,10 +817,6 @@ details.research-area[open] summary::after {
   white-space: nowrap;
 }
 
-.cv-list.wide {
-  max-width: 820px;
-}
-
 .course-list li {
   padding: 10px 0;
   border-bottom: 1px solid var(--line);
