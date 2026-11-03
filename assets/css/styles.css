@@ -1366,16 +1366,16 @@ th {
   }
 }
 
-/* Research: author lines (shown in the All Papers tab only; * = corresponding author) */
+/* Research: authors right after the title, on the same line
+   (All Papers tab only; * = corresponding author) */
 .study-authors {
-  display: block;
-  margin-top: 1px;
+  margin-left: 0.25rem;
   color: var(--muted);
   font-size: 0.88rem;
 }
 
-.study-authors + .study-meta {
-  margin-left: 0;
+.study-authors::after {
+  content: ".";
 }
 
 .study-authors strong {
