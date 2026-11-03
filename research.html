@@ -33,8 +33,13 @@
         <a class="orcid-button external-link" href="https://orcid.org/0000-0002-3704-1514" target="_blank" rel="noopener noreferrer" aria-label="Open ORCID profile" title="Open ORCID profile">ORCID</a>
       </div>
 
-      <section class="content-section">
-        <h2>Research Areas <span class="section-title-ko">연구 분야</span></h2>
+      <section class="content-section research-section">
+        <h2 class="research-heading">Research Areas <span class="section-title-ko">연구 분야</span></h2>
+        <div class="research-tabs" role="tablist" aria-label="연구 목록 보기" hidden>
+          <button type="button" class="research-tab" role="tab" id="tab-areas" aria-controls="panel-areas" aria-selected="true">Research Areas <span class="section-title-ko">연구 분야</span></button>
+          <button type="button" class="research-tab" role="tab" id="tab-all" aria-controls="panel-all" aria-selected="false" tabindex="-1">All Papers <span class="section-title-ko">전체 논문</span></button>
+        </div>
+        <div class="research-panel" id="panel-areas" role="tabpanel" aria-labelledby="tab-areas">
         <div class="research-accordion">
           <details class="research-area">
             <summary>
@@ -167,6 +172,8 @@
             </div>
           </details>
         </div>
+        </div>
+        <div class="research-panel paper-all" id="panel-all" role="tabpanel" aria-labelledby="tab-all" hidden></div>
       </section>
 
       <section class="content-section publication-section">
