@@ -74,6 +74,20 @@ if (researchTabs && areasPanel && allPanel) {
     el("strong", "", `게재 ${published.length}편`),
     ` (${indexCounts}) · 게재 승인 ${byStatus("accepted").length}편 · 심사 중 ${byStatus("review").length}편 · 진행 중 ${byStatus("current").length}편`
   );
+  // Jack's role, read from the author line: his name is in <strong>, and
+  // a "*" after a name marks the corresponding author.
+  const myName = (p) => p.li.querySelector(".study-authors strong");
+  const firstCount = published.filter((p) => {
+    const me = myName(p);
+    return me && !me.previousSibling;
+  }).length;
+  const corrCount = published.filter((p) => {
+    const me = myName(p);
+    return me && me.textContent.trim().endsWith("*");
+  }).length;
+  if (firstCount || corrCount) {
+    summary.append(el("br"), `게재 논문 중 1저자 ${firstCount}편 · 교신저자 ${corrCount}편 (* 교신저자)`);
+  }
   allPanel.append(summary);
 
   let number = published.length;

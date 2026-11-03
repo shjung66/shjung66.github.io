@@ -1401,3 +1401,24 @@ th {
     font-size: 0.8rem;
   }
 }
+
+/* Research: author lines (shown in the All Papers tab only; * = corresponding author) */
+.study-authors {
+  display: block;
+  margin-top: 1px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.study-authors + .study-meta {
+  margin-left: 0;
+}
+
+.study-authors strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+#panel-areas .study-authors {
+  display: none;
+}
