@@ -44,13 +44,10 @@ if (researchTabs && areasPanel && allPanel) {
     if (tags.includes("In progress")) status = "current";
     else if (tags.includes("Under review")) status = "review";
     else if (tags.includes("Accepted")) status = "accepted";
-    const metaEl = li.querySelector(".study-meta");
-    const yearMatch = (metaEl ? metaEl.textContent : "").match(/(\d{4})\.?\s*$/);
     papers.push({
       li,
       status,
-      year: yearMatch ? Number(yearMatch[1]) : 0,
-      date: li.dataset.date || "", // "YYYY-MM", orders papers within a year
+      date: li.dataset.date || "", // publication date, "YYYY-MM" or "YYYY-MM-DD"
       num: Number(id.replace(/\D/g, "")),
     });
   });
@@ -59,7 +56,7 @@ if (researchTabs && areasPanel && allPanel) {
     const byStatus = statusOrder.indexOf(a.status) - statusOrder.indexOf(b.status);
     if (byStatus) return byStatus;
     if (a.status !== "published") return a.num - b.num;
-    return b.year - a.year || b.date.localeCompare(a.date) || b.num - a.num;
+    return b.date.localeCompare(a.date) || b.num - a.num;
   });
 
   // Published papers are numbered, the newest with the highest number
